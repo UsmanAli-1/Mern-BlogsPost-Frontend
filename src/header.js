@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
-export default function Header() { 
+export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
 
   useEffect(() => {
@@ -37,25 +37,25 @@ export default function Header() {
 
   function clearAllCookies() {
     document.cookie.split(';').forEach(cookie => {
-        const name = cookie.split('=')[0].trim();
-        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      const name = cookie.split('=')[0].trim();
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     });
-}
+  }
 
   function logout() {
     fetch('http://localhost:4000/logout', {
-        credentials: 'include',
-        method: 'POST',
+      credentials: 'include',
+      method: 'POST',
     })
-        .then(() => {
-          clearAllCookies();
-            setUserInfo(null);    
-        })
-        .catch(error => {
-            console.error('Error during logout:', error);
-            alert('Failed to logout. Please try again.');
-        });
-}
+      .then(() => {
+        clearAllCookies();
+        setUserInfo(null);
+      })
+      .catch(error => {
+        console.error('Error during logout:', error);
+        alert('Failed to logout. Please try again.');
+      });
+  }
 
 
   const username = userInfo?.username;

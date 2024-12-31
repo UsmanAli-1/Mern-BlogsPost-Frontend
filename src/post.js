@@ -1,9 +1,9 @@
 // import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
-export default function post({ _id,title, summary, content, cover, createdAt, author }) {
+export default function post({ _id, title, summary, content, cover, createdAt, author }) {
 
   console.log("post   🍎🍎🍎", author);
-  
+
   return (
     <div className="post">
       <div className="image">
@@ -16,12 +16,11 @@ export default function post({ _id,title, summary, content, cover, createdAt, au
           <h2>{title}</h2>
         </Link>
         <p className="info">
-          <span className="author">{author.username}</span>
+          <span className="author">By {author.username}</span>
           <time>{createdAt}</time>
         </p>
-        <p>{summary}</p>
+        <p className="summary">{summary}</p>
       </div>
-
     </div>
 
   );

@@ -31,3 +31,10 @@ coverage/
 
 # Debug files
 *.map
+
+# Ignore all images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
